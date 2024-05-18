@@ -25,14 +25,15 @@ namespace ControleDeContatos.Controllers
             return View();
         }
 
-        public IActionResult Editar()
+        public IActionResult Contato()
         {
             return View();
         }
 
-        public IActionResult ApagarConfirmacao()
-        {
-            return View();
+        public IActionResult Editar(int Id)
+        {   
+            ContatoModel contato = _contatoRepository.FindById(Id);
+            return View(contato);
         }
 
         [HttpPost]
@@ -42,9 +43,17 @@ namespace ControleDeContatos.Controllers
             return RedirectToAction("Index");
         }
 
-       
+        [HttpPost]
+        public IActionResult Alterar(ContatoModel contato)
+        {
+            _contatoRepository.AtualizarCadastro(contato);
+            return RedirectToAction("Index");
+        }
 
-
-
+        public IActionResult ApagarContato(int Id)
+        {
+            _contatoRepository.DeleteById(Id);
+            return RedirectToAction("Index");
+        }
     }
 }

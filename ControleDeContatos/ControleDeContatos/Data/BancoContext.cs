@@ -16,6 +16,10 @@ namespace ControleDeContatos.Data
             modelBuilder.Entity<ContatoModel>().HasKey(e => e.Id);
         }
 
+        internal T Remove<T>(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

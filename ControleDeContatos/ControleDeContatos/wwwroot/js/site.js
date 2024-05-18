@@ -1,25 +1,27 @@
-﻿
-function validator() { 
+﻿function validator(event, Id) {
+    event.preventDefault();
 
     Swal.fire({
-    title: "Tem certeza ?",
-    text: "Não será possível reverter essa ação",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
+        title: "Tem certeza ? ",
+        text: "Esta ação não poderá ser revertida",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-    cancelButtonText:"Cancelar",
-    confirmButtonText: "Sim, deletar !"
-}).then((result) => {
-    if (result.isConfirmed) {
-        Swal.fire({
-            title: "Deleted!",
-            text: "Seu registro foi excluído com sucesso.",
-            icon: "success"
-        });
-    }
-});
-
+        confirmButtonText: "Sim, deletar!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            
+            
+ 
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+            });
+            window.location.href = `/Contato/ApagarContato?id=${Id}`;
+        }
+    });
 }
 
 function ok() {

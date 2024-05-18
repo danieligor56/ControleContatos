@@ -6,5 +6,11 @@ namespace ControleDeContatos.Repository
     {   
         List<ContatoModel> listAll();
         ContatoModel Adicionar(ContatoModel contato);
+
+        ContatoModel FindById(int Id);
+
+        ContatoModel DeleteById(int Id);
+
+        ContatoModel AtualizarCadastro(ContatoModel contato);
     }
 }
